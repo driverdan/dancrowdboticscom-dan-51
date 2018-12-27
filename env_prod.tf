@@ -2,14 +2,7 @@
 resource "heroku_app" "production" {
   name   = "${var.app_name}-prod"
   region = "us"
-
-  buildpacks = [
-    "heroku/python"
-  ]
-
-  config_vars = {
-    DEBUG_COLLECTSTATIC = "1"
-  }
+  stack  = "container"
 }
 
 resource "heroku_addon" "database_production" {
